@@ -20,11 +20,11 @@ You should have working GPDB or ADB cluster with installed PXF.
 You will get a `pxf-kafka/build` folder with target jars. Copy them to each GPDB or ADB host and delete the old one:
 
 ```shell script
-cp pxf-kafka.jar /usr/lib/pxf/lib
-chown pxf:pxf /usr/lib/pxf/lib/pxf-kafka.jar
-rm /usr/lib/pxf/lib/shared/avro-1.7.7.jar
-cp avro-1.9.2.jar /usr/lib/pxf/lib/shared/
-chown pxf:pxf /usr/lib/pxf/lib/shared/avro-1.9.2.jar
+cp pxf-kafka.jar /usr/lib/pxf-gp6/lib
+chown pxf:pxf /usr/lib/pxf-gp6/lib/pxf-kafka.jar
+rm /usr/lib/pxf-gp6/lib/shared/avro-1.7.7.jar
+cp avro-1.9.2.jar /usr/lib/pxf-gp6/lib/shared/
+chown pxf:pxf /usr/lib/pxf-gp6/lib/shared/avro-1.9.2.jar
 ```
 Then sync greenplum cluster
 ```shell script
