@@ -56,9 +56,16 @@ public class KafkaBasePlugin extends BasePlugin {
 
     protected final Map<String, Object> kafkaProps = new HashMap<>();
 
+   /*    
     @Override
     public void initialize(RequestContext context) {
         super.initialize(context);
+    } 
+*/
+    @Override
+    public void afterPropertiesSet(){
+
+    //        System.out.println("ccccc :" + context);
 
         // Required metadata
         topic = context.getDataSource();
@@ -70,7 +77,6 @@ public class KafkaBasePlugin extends BasePlugin {
         String servers = configuration.get(KAFKA_SERVERS_PROPERTY_NAME);
         assertMandatoryParameter(servers, KAFKA_SERVERS_PROPERTY_NAME, KAFKA_SERVERS_OPTION_NAME);
         LOG.debug("Bootstrap servers: '{}'", servers);
-
         batchSize = configuration.getInt(KAFKA_BATCH_SIZE_PROPERTY_NAME, KAFKA_BATCH_SIZE_DEFAULT_VALUE);
         topicAutoCreateFlag = configuration.getBoolean(KAFKA_TOPIC_AUTO_CREATE_FLAG_PROPERTY_NAME, KAFKA_TOPIC_AUTO_CREATE_FLAG_DEFAULT_VALUE);
 
@@ -79,7 +85,7 @@ public class KafkaBasePlugin extends BasePlugin {
 
         LOG.debug("Kafka properties: {}", kafkaProps);
         LOG.debug("Incoming columns: {}", context.getTupleDescription());
-
+        System.out.println("bbbbb: " + kafkaProps);
         if (!topicExists(servers, topic)) {
             throw new IllegalArgumentException(String.format(
                     "Topic [%s] doesn't exist and parameter %s/option %s flag is set to false",

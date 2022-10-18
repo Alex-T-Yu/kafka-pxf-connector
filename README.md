@@ -2,6 +2,10 @@
 
 [PXF](https://gpdb.docs.pivotal.io/6-8/pxf/overview_pxf.html) plugin to write data to Kafka topic.
 
+## Prerequirement
+
+PXF (6.x , This Code Optimized pxf-api 6.2.3)
+
 ## How to deploy and use
 
 You should have working GPDB or ADB cluster with installed PXF.
