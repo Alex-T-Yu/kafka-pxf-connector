@@ -75,10 +75,12 @@ public class KafkaAccessorTest {
             put("kafka.batch.size", Integer.toString(BATCH_SIZE));
         }});
         doReturn(true).when(accessor).topicExists(anyString(), anyString());
-        accessor.initialize(context);
+        accessor.afterPropertiesSet();
+        accessor.setRequestContext(context);
         accessor.setProducer(producer);
         resolver = new KafkaResolver();
-        resolver.initialize(context);
+        resolver.afterPropertiesSet();
+        resolver.setRequestContext(context);
         when(producer.send(any())).thenAnswer(invocation -> {
             @SuppressWarnings("unchecked")
             ProducerRecord<KafkaMessageKey, List<GenericRecord>> record =

@@ -32,7 +32,7 @@ subprojects {
     sourceCompatibility = 1.8
 
     ext {
-        pxfVersion = '5.14.0'
+        pxfVersion = '6.2.3'
         avroVersion = '1.9.2'
         kafkaVersion = '2.5.0'
         hadoopVersion = '2.9.2'
